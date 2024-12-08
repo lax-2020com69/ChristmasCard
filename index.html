@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Card</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /*background-color: #f0f8ff;*/
+            background-color: aquamarine;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Snowflakes Styling */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .snowflake {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #fff;
+            opacity: 0.8;
+            animation: fall 8s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(calc(50px - 100px));
+                opacity: 0;
+            }
+        }
+
+        /* Random snowflakes positioning */
+        .snowflake:nth-child(1) { left: 10%; animation-duration: 8s; }
+        .snowflake:nth-child(2) { left: 15%; animation-duration: 9s; }
+        .snowflake:nth-child(3) { left: 20%; animation-duration: 7s; }
+        .snowflake:nth-child(4) { left: 25%; animation-duration: 6s; }
+        .snowflake:nth-child(5) { left: 30%; animation-duration: 8s; }
+        .snowflake:nth-child(6) { left: 35%; animation-duration: 10s; }
+        .snowflake:nth-child(7) { left: 40%; animation-duration: 9s; }
+        .snowflake:nth-child(8) { left: 45%; animation-duration: 7s; }
+        .snowflake:nth-child(9) { left: 50%; animation-duration: 8s; }
+        .snowflake:nth-child(10) { left: 55%; animation-duration: 6s; }
+        .snowflake:nth-child(11) { left: 60%; animation-duration: 8s; }
+        .snowflake:nth-child(12) { left: 65%; animation-duration: 10s; }
+        .snowflake:nth-child(13) { left: 70%; animation-duration: 7s; }
+        .snowflake:nth-child(14) { left: 75%; animation-duration: 9s; }
+        .snowflake:nth-child(15) { left: 80%; animation-duration: 8s; }
+
+        /* Card Container */
+        .card-container {
+            perspective: 1000px; /* Gives depth for the 3D flip effect */
+        }
+
+        /* Card Styling */
+        .card {
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+        }
+
+        /* Flip effect on hover */
+        .card:hover {
+            transform: rotateY(180deg); /* Flip the card */
+        }
+
+        /* Card Front Styling */
+        .card-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #e74c3c; /* Christmas Red */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 20px;
+            backface-visibility: hidden; /* Hide the back when flipped */
+        }
+
+        .card-front h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .card-front p {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Card Back Styling */
+        .card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #27ae60; /* Christmas Green */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            padding: 20px;
+            transform: rotateY(180deg); /* Initially hide the back */
+            backface-visibility: hidden; /* Hide the front when flipped */
+        }
+
+        .card-back h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .card-back p {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Snowflakes container -->
+    <div class="snowflakes">
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❄</div>
+    </div>
+
+    <!-- Card Container -->
+    <div class="card-container">
+        <div class="card">
+            <!-- Front of the card -->
+            <div class="card-front">
+                <h1>🎄 Merry Christmas! 🎄</h1>
+                <p>Wishing you a joyful holiday season filled with love and warmth.</p>
+            </div>
+            <!-- Back of the card -->
+            <div class="card-back">
+                <h2>Happy Holidays!</h2>
+                <p>May your Christmas be merry and bright!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
